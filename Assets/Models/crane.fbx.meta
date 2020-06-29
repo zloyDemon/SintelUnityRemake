@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 6d8b0fcb4ce7dfb4db769b570f6b76a3
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      74: -8591850104801173706
+    second: crane_base|ConvData_Action.011
+  - first:
+      74: 3623245338475426939
+    second: crane_base|crane_cam_rot
+  - first:
+      74: 2455727007696425303
+    second: crane_base|crane_rotate
+  - first:
+      74: 836195421339475005
+    second: crane_base|dummyAction
+  - first:
+      74: 7611614623409513006
+    second: crane_head|ConvData_Action.011
+  - first:
+      74: 497688953982284902
+    second: crane_head|crane_cam_rot
+  - first:
+      74: -5942108517711294580
+    second: crane_head|crane_rotate
+  - first:
+      74: 6711856316093988639
+    second: crane_head|dummyAction
+  - first:
+      74: -4481240156076585384
+    second: crane_gear|ConvData_Action.011
+  - first:
+      74: 344751384983715375
+    second: crane_gear|crane_cam_rot
+  - first:
+      74: -4976615027726428922
+    second: crane_gear|crane_rotate
+  - first:
+      74: 4771715803698415621
+    second: crane_gear|dummyAction
+  - first:
+      74: 6224354720262724589
+    second: crane_small_gear|ConvData_Action.011
+  - first:
+      74: -7725252443817314911
+    second: crane_small_gear|crane_cam_rot
+  - first:
+      74: -8612391931229359071
+    second: crane_small_gear|crane_rotate
+  - first:
+      74: -2073183414119139772
+    second: crane_small_gear|dummyAction
+  - first:
+      74: 415170826441183578
+    second: crane_gear_tiny|ConvData_Action.011
+  - first:
+      74: 4509764013289110523
+    second: crane_gear_tiny|crane_cam_rot
+  - first:
+      74: 6534747857121480786
+    second: crane_gear_tiny|crane_rotate
+  - first:
+      74: -2707876311368566007
+    second: crane_gear_tiny|dummyAction
+  - first:
+      74: -5895501822124840660
+    second: crane_grab|ConvData_Action.011
+  - first:
+      74: 5657119828297277953
+    second: crane_grab|crane_cam_rot
+  - first:
+      74: -775615851144935035
+    second: crane_grab|crane_rotate
+  - first:
+      74: -8636186239857749627
+    second: crane_grab|dummyAction
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
