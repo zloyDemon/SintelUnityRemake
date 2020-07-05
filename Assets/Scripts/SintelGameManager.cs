@@ -19,6 +19,6 @@ public class SintelGameManager : MonoBehaviour
 
     private void InitSintelGame()
     {
-        Debug.Log("Sintel game initialization");
+        Debug.Log("Start init");
     }
 }
