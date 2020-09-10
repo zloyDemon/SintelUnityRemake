@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc66e301652911438d782677c3f678e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
   sintelPlayer: {fileID: 2254894273639901678, guid: 99ea51f574fb979479d83e9091700a5c,
     type: 3}
   cinemachineFreeLook: {fileID: 5812860454030170132, guid: 051efff429f14ad4db4bf1fbb7e6483c,
     type: 3}
+  gameUI: {fileID: 8829395913190321635, guid: e809a258acb26334fb274b0c93c6bb80, type: 3}

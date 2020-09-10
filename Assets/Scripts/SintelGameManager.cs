@@ -7,14 +7,17 @@ public class SintelGameManager : MonoBehaviour
 {
     [SerializeField] SintelPlayer sintelPlayer;
     [SerializeField] CinemachineFreeLook cinemachineFreeLook;
+    [SerializeField] GameUI gameUI;
 
     private LevelData levelData;
+    private Canvas canvas;
 
     public static SintelGameManager Instance { get; private set; }
 
     public Camera MainCamera => Camera.main;
 
     public SintelPlayer SintelPlayer { get; private set; }
+    public GameUI GameUI { get; private set; }
 
     private void Awake()
     {
@@ -30,8 +33,11 @@ public class SintelGameManager : MonoBehaviour
     private void InitSintelGame()
     {
         Debug.Log("Start init");
+        canvas = FindObjectOfType<Canvas>();
         FindLevelData();
         StartCoroutine(InitCharacter());
+
+        GameUI = Instantiate(gameUI, canvas.transform);
     }
 
     private void FindLevelData()
