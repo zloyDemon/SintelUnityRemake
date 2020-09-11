@@ -64,9 +64,7 @@ public class SintelPlayer : MonoBehaviour
     private void Update()
     {
         CheckRaycastHit();
-
-        if (Input.GetKeyDown(KeyCode.F))
-            Destroy(SintelGameManager.Instance.gameObject);
+        DevelopViewManager.Instance.SetValue("SintelPosition", transform.position.ToString());
     }
 
     private void FixedUpdate()

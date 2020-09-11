@@ -24,6 +24,8 @@ public class GameUI : MonoBehaviour
         hpHitCG.alpha = 0;
         hp = maxHp;
         SetHpBarValue(1);
+
+        DevelopViewManager.Instance.AddFunction("Damage", () => Damage());
     }
 
     private void SetHpBarValue(float value)
