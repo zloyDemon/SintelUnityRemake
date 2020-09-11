@@ -33,11 +33,9 @@ public class SintelGameManager : MonoBehaviour
     private void InitSintelGame()
     {
         Debug.Log("Start init");
-        canvas = FindObjectOfType<Canvas>();
         FindLevelData();
         StartCoroutine(InitCharacter());
-
-        GameUI = Instantiate(gameUI, canvas.transform);
+        GameUI = Instantiate(gameUI);
     }
 
     private void FindLevelData()
