@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360378648fd3de0439fdd3652ce2365d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCanvas: {fileID: 0}
   hpHit: {fileID: 3051067283749086385}
   hpBar: {fileID: 5372443219930611734}
+  compassView: {fileID: 0}
 --- !u!1 &2668186009230932869
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,8 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360378648fd3de0439fdd3652ce2365d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCanvas: {fileID: 0}
   hpHit: {fileID: 3051067283749086385}
   hpBar: {fileID: 5372443219930611734}
+  compassView: {fileID: 0}
 --- !u!1 &3140883429258022051
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +253,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.89
+  m_FillAmount: 0.835
   m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0

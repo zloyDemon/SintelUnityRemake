@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class GameUI : MonoBehaviour
 {
@@ -14,18 +15,32 @@ public class GameUI : MonoBehaviour
     public Canvas GameCanvas => gameCanvas;
 
     private CanvasGroup hpHitCG;
-
-    private int maxHp = 100;
-    private int hp;
+    private CharacterData characterData;
 
     private void Awake()
     {
         hpHitCG = hpHit.GetComponent<CanvasGroup>();
         hpHitCG.alpha = 0;
-        hp = maxHp;
-        SetHpBarValue(1);
+    }
 
-        DevelopViewManager.Instance.AddFunction("Damage", () => Damage());
+    private void OnDestroy()
+    {
+        if(characterData != null)
+            characterData.OnHealthChange += OnCharacterHeathChanger;
+    }
+
+    public void Init(CharacterData data)
+    {
+        characterData = data;
+        characterData.OnHealthChange += OnCharacterHeathChanger;
+    }
+
+    private void OnCharacterHeathChanger(int oldHealthValue, int newHealthValue)
+    {
+        if (newHealthValue > oldHealthValue)
+            Rise();
+        else
+            Damage();
     }
 
     private void SetHpBarValue(float value)
@@ -36,49 +51,26 @@ public class GameUI : MonoBehaviour
 
     private void CheckHpBarColor()
     {
-        if (hp < 25)
+        int health = characterData.Health;
+        if (health < 25)
             hpBar.color = Color.red;
         else
             hpBar.color = Color.green;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
-            Damage();
-        if (Input.GetKeyDown(KeyCode.J))
-            Rise();
-    }
-
     private void Damage()
     {
-        hp -= 5;
-        SetHpBarValue((float)hp / maxHp);
+        SetHpBarValue((float)characterData.Health / characterData.MaxHealth);
         CheckHpBarColor();
-        Debug.Log("Damage");
         Sequence sequence = DOTween.Sequence();
         sequence.Append(hpHitCG.DOFade(1, 0.5f));
         sequence.Append(hpHitCG.DOFade(0, 0.5f));
         sequence.Play();
-
-        
     }
 
     private void Rise()
     {
-        hpBar.DOFillAmount(1, 1f).OnUpdate(() => CheckHpBarColor()).Play();
-        hp = maxHp;
-    }
-
-    private void ApplyHitImage()
-    {
-
-    }
-
-    IEnumerator CorApplyHitImage()
-    {
-        hpHitCG.alpha = 1;
-        yield return new WaitForSeconds(1);
-        hpHitCG.alpha = 0;
+        var value = (float)characterData.Health / characterData.MaxHealth;
+        hpBar.DOFillAmount(value, 1f).OnUpdate(() => CheckHpBarColor()).Play();
     }
 }

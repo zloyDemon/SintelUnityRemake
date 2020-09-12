@@ -33,14 +33,25 @@ public class SintelGameManager : MonoBehaviour
     private void InitSintelGame()
     {
         Debug.Log("Start init");
-        FindLevelData();
-        StartCoroutine(InitCharacter());
-        GameUI = Instantiate(gameUI);
+        StartCoroutine(CorInitGameObjects());
     }
 
     private void FindLevelData()
     {
         levelData = FindObjectOfType<LevelData>();
+    }
+
+    IEnumerator CorInitGameObjects()
+    {
+        yield return new WaitForEndOfFrame();
+        FindLevelData();
+        yield return new WaitForEndOfFrame();
+        yield return InitCharacter();
+        yield return new WaitForEndOfFrame();
+        GameUI = Instantiate(gameUI);
+        GameUI.Init(SintelPlayer.GetComponent<CharacterData>());
+        yield return new WaitForEndOfFrame();
+        Debug.Log("Game loaded.");
     }
 
     IEnumerator InitCharacter()
@@ -49,7 +60,6 @@ public class SintelGameManager : MonoBehaviour
         SpawnSintelPlayer();
         yield return new WaitForEndOfFrame();
         InitCamera();
-        yield return new WaitForEndOfFrame();
     }
 
     private void SpawnSintelPlayer()

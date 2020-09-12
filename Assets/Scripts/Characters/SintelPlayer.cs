@@ -173,6 +173,6 @@ public class SintelPlayer : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = isGround ? Color.green : Color.red;
-        Gizmos.DrawWireCube(transform.position, Vector3.one * 0.5f);
+        Gizmos.DrawWireCube(transform.position + (Vector3.up / 8f), Vector3.one * 0.25f);
     }
 }
