@@ -122,6 +122,24 @@ public class SintelAttackComponent : MonoBehaviour
     private void AttackAnimationEvent(int value)
     {
         if (value == (int)SintelAnimatorController.AnimationEventId.Attack)
+        {
+            AttackEnemy();
             AttackEvent(currentAttackId);
+        }
+    }
+
+    private void AttackEnemy()
+    {
+        Vector3 origin = transform.position + Vector3.up * 0.8f;
+        Vector3 direction = transform.forward;
+        Debug.DrawRay(origin, direction * 2, Color.red);
+        if(Physics.Raycast(origin, direction, out RaycastHit hitInfo, 2)) // TODO: to const
+        {
+            CharacterData data;
+            if((data = hitInfo.transform.GetComponent<CharacterData>()) != null)
+            {
+                data.Damage(10 * currentAttackId);
+            }
+        }
     }
 }

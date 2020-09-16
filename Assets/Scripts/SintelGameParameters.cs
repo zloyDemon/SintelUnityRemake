@@ -23,5 +23,17 @@ public static class SintelGameParameters
         public static readonly int AttackId = Animator.StringToHash("AttackId");
         public static readonly int CharacterState = Animator.StringToHash("CharacterState");
         public static readonly int IsGround = Animator.StringToHash("IsGround");
+        public static readonly int AttackBug = Animator.StringToHash("Attack");
+    }
+
+    public class BugAnimatorsParameters
+    {
+        public static readonly int Hurt = Animator.StringToHash("Hurt");
+        public static readonly int Death = Animator.StringToHash("Death");
+    }
+
+    public class CharactersValue
+    {
+        public static float BugSpeed = 3f;
     }
 }

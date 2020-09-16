@@ -9,15 +9,13 @@ public class CharacterData : MonoBehaviour
 
     public int MaxHealth => maxHealt;
     public int Health { get; private set; }
+    public bool IsAlive => Health > 0;
 
     public event Action<int, int> OnHealthChange = (ov, nv) => { };
 
     private void Awake()
     {
         Health = maxHealt;
-
-        DevelopViewManager.Instance.AddFunction("DamageFromDATA", () => Damage(10));
-        DevelopViewManager.Instance.AddFunction("RiseHealth", () => HealthChange(5));
     }
 
     public void Damage(int damage)

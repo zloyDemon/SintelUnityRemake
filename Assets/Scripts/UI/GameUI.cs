@@ -11,8 +11,10 @@ public class GameUI : MonoBehaviour
     [SerializeField] Image hpHit;
     [SerializeField] Image hpBar;
     [SerializeField] Image compassView;
+    [SerializeField] NpcUiController npcUiController;
 
     public Canvas GameCanvas => gameCanvas;
+    public NpcUiController NpcUiController => npcUiController;
 
     private CanvasGroup hpHitCG;
     private CharacterData characterData;
@@ -33,6 +35,7 @@ public class GameUI : MonoBehaviour
     {
         characterData = data;
         characterData.OnHealthChange += OnCharacterHeathChanger;
+        SetHpBarValue(characterData.Health);
     }
 
     private void OnCharacterHeathChanger(int oldHealthValue, int newHealthValue)

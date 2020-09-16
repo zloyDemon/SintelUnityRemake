@@ -30,9 +30,9 @@ public class DevelopViewManager : MonoBehaviour
         }
     }
 
-    public void SetValue(string key, string value)
+    public void SetValue(string key, object value)
     {
-        developerView.SetParameterValue(key, value);
+        developerView.SetParameterValue(key, value.ToString());
     }
 
     public void AddFunction(string functionName, Action function)

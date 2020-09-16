@@ -20,7 +20,8 @@ public class MoveComponent : MonoBehaviour
 
     public void Move(Vector3 direction)
     {
-        rigidBody.MovePosition(transform.position + Vector3.ClampMagnitude(direction, 1f) * MoveSpeed * Time.deltaTime);
+        rigidBody.MovePosition(transform.position + Vector3.ClampMagnitude(direction, 1f) * MoveSpeed * Time.fixedDeltaTime);
+        IsMoving = direction != Vector3.zero && MoveSpeed != 0;
     }
 
     public Quaternion RotateTo(Vector3 direction)
@@ -30,6 +31,18 @@ public class MoveComponent : MonoBehaviour
         var result = Quaternion.Slerp(transform.rotation, directionRotation, RotationSpeed * Time.deltaTime);
         transform.rotation = result;
         return result;
+    }
+
+    public Quaternion RotateToTarget(Transform target)
+    {
+        var direction = (target.position - transform.position).normalized;
+        return RotateTo(direction);
+    }
+
+    public void MoveWithRotation(Vector3 direction)
+    {
+        Move(direction);
+        RotateTo(direction);
     }
 
     public void Jump()

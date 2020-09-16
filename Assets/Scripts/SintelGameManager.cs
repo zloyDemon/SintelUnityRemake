@@ -1,21 +1,26 @@
 ﻿using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SintelGameManager : MonoBehaviour
 {
-    [SerializeField] SintelPlayer sintelPlayer;
     [SerializeField] CinemachineFreeLook cinemachineFreeLook;
     [SerializeField] GameUI gameUI;
+
+    [Header("Characters prefabs")]
+    [SerializeField] SintelPlayer sintelPlayerPrefab;
+    [SerializeField] BugController bugPrefab;
 
     private LevelData levelData;
     private Canvas canvas;
 
+    public event Action OnLevelLoaded = () => { };
+
     public static SintelGameManager Instance { get; private set; }
-
+    public LevelData LevelData => levelData;
     public Camera MainCamera => Camera.main;
-
     public SintelPlayer SintelPlayer { get; private set; }
     public GameUI GameUI { get; private set; }
 
@@ -51,6 +56,9 @@ public class SintelGameManager : MonoBehaviour
         GameUI = Instantiate(gameUI);
         GameUI.Init(SintelPlayer.GetComponent<CharacterData>());
         yield return new WaitForEndOfFrame();
+        SpawnBug();
+        yield return new WaitForEndOfFrame();
+        OnLevelLoaded();
         Debug.Log("Game loaded.");
     }
 
@@ -65,8 +73,14 @@ public class SintelGameManager : MonoBehaviour
     private void SpawnSintelPlayer()
     {
         Vector3 spawnPostion = levelData.SintelSpawnPoint.position;
-        var sintel = Instantiate(sintelPlayer, spawnPostion, Quaternion.identity);
+        var sintel = Instantiate(sintelPlayerPrefab, spawnPostion, Quaternion.identity);
         SintelPlayer = sintel;
+    }
+
+    public void SpawnBug()
+    {
+        Vector3 spawnPostion = levelData.BugSpawnPosition.position;
+        var bug = Instantiate(bugPrefab, spawnPostion, Quaternion.identity);
     }
 
     private void InitCamera()
