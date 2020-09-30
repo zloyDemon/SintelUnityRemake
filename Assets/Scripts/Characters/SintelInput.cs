@@ -58,7 +58,6 @@ public class SintelInput : MonoBehaviour
         AttackPressed = false;
         inputs[SintelInputType.Attack] = false;
         inputs[SintelInputType.Jump] = false;
-        inputs[SintelInputType.Sprint] = false;
     }
 
     public void AddInput<T>(SintelInputType type, T value)

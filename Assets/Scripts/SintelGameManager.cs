@@ -8,6 +8,7 @@ public class SintelGameManager : MonoBehaviour
 {
     [SerializeField] CinemachineFreeLook cinemachineFreeLook;
     [SerializeField] GameUI gameUI;
+    [SerializeField] Spawner spawner;
 
     [Header("Characters prefabs")]
     [SerializeField] SintelPlayer sintelPlayerPrefab;
@@ -23,6 +24,7 @@ public class SintelGameManager : MonoBehaviour
     public Camera MainCamera => Camera.main;
     public SintelPlayer SintelPlayer { get; private set; }
     public GameUI GameUI { get; private set; }
+    public Spawner Spawner => spawner;
 
     private void Awake()
     {
@@ -56,7 +58,7 @@ public class SintelGameManager : MonoBehaviour
         GameUI = Instantiate(gameUI);
         GameUI.Init(SintelPlayer.GetComponent<CharacterData>());
         yield return new WaitForEndOfFrame();
-        SpawnBug();
+        Spawner.SpawnBug(levelData.BugSpawnPosition.position, Quaternion.identity);
         yield return new WaitForEndOfFrame();
         OnLevelLoaded();
         Debug.Log("Game loaded.");
@@ -75,12 +77,6 @@ public class SintelGameManager : MonoBehaviour
         Vector3 spawnPostion = levelData.SintelSpawnPoint.position;
         var sintel = Instantiate(sintelPlayerPrefab, spawnPostion, Quaternion.identity);
         SintelPlayer = sintel;
-    }
-
-    public void SpawnBug()
-    {
-        Vector3 spawnPostion = levelData.BugSpawnPosition.position;
-        var bug = Instantiate(bugPrefab, spawnPostion, Quaternion.identity);
     }
 
     private void InitCamera()
