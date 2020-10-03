@@ -128,11 +128,24 @@ public class SintelPlayer : MonoBehaviour
         attackComponent.Attack();
         SintelUtils.KillAndNullCoroutine(this, ref corAttackTimer);
         corAttackTimer = StartCoroutine(CorBattleStateTimer());
+        CalcAngle();
+    }
+
+    // TODO
+    private void CalcAngle()
+    {
+        Quaternion tmp = mainCamera.rotation;
+        mainCamera.eulerAngles = new Vector3(0, mainCamera.eulerAngles.y, 0);
+        currentDirection = mainCamera.TransformDirection(currentDirection);
+        mainCamera.rotation = tmp;
+        Quaternion newRotation = new Quaternion(transform.localRotation.x, mainCamera.transform.localRotation.y, transform.localRotation.z, mainCamera.localRotation.w);
+        //transform.localRotation = Quaternion.Lerp(transform.localRotation, newRotation, 10f * Time.deltaTime);
+        transform.localRotation = newRotation;
     }
 
     private void OnAttack(int attackId)
     {
-        Debug.Log($"Attack {attackId}");
+        
     }
 
     private void CheckRaycastHit()
@@ -153,7 +166,8 @@ public class SintelPlayer : MonoBehaviour
             if (hitInfo.normal != Vector3.up)
             {
                 var crossVector = Vector3.Cross(transform.right, hitInfo.normal).normalized;
-                yVelocity = crossVector.y;
+                bool isCorrectAngle = Vector3.Angle(crossVector, transform.forward) < 40;
+                yVelocity = isCorrectAngle ? crossVector.y : 0;
             }
         }
     }

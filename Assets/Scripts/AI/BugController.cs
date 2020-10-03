@@ -96,7 +96,6 @@ public class BugController : AIBaseBehaviour
         {
             sintelAnimator.SetValue(SintelGameParameters.AnimatorParameters.MoveStateId, 0);
         }
-            
     }
 
     private float DistanceToTarget(Transform target)

@@ -6,14 +6,14 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] BugController bugControllerPrefab;
 
-    public GameObject SpawnBug(Vector3 position, Quaternion rotation)
+    public BugController SpawnBug(Vector3 position, Quaternion rotation)
     {
-        return SpawnObject(bugControllerPrefab.gameObject, position, rotation);
+        return SpawnObject<BugController>(bugControllerPrefab.gameObject, position, rotation);
     }
 
-    private GameObject SpawnObject(GameObject originalPrefab, Vector3 position, Quaternion rotation)
+    private T SpawnObject<T>(GameObject originalPrefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour
     {
         var spawnedObject = Instantiate(originalPrefab, position, rotation);
-        return spawnedObject;
+        return spawnedObject as T;
     }
 }
