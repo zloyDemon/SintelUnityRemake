@@ -59,6 +59,7 @@ public class SintelGameManager : MonoBehaviour
         GameUI.Init(SintelPlayer.GetComponent<CharacterData>());
         yield return new WaitForEndOfFrame();
         Spawner.SpawnBug(levelData.BugSpawnPosition.position, Quaternion.identity);
+        Spawner.SpawnBug(levelData.BugSpawnPosition.position, Quaternion.identity);
         yield return new WaitForEndOfFrame();
         OnLevelLoaded();
         Debug.Log("Game loaded.");

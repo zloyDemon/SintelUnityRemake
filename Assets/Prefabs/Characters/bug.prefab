@@ -27,7 +27,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.599, z: 0.251}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7535884519370465907}
+  m_Father: {fileID: 7526606467181400889}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &803765229249872503
@@ -307,7 +307,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3610900287835578930}
-  m_Father: {fileID: 7535884519370465907}
+  m_Father: {fileID: 7526606467181400889}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4207509977167131545
@@ -368,7 +368,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
-  m_Father: {fileID: 7535884519370465907}
+  m_Father: {fileID: 7526606467181400889}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &5379352487892917040
@@ -467,7 +467,7 @@ Transform:
   - {fileID: 630045481794090352}
   - {fileID: 8802422913467026487}
   - {fileID: 5405488440076409576}
-  m_Father: {fileID: 7535884519370465907}
+  m_Father: {fileID: 7526606467181400889}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4985652141842302253
@@ -501,7 +501,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7535884519370465907}
+  m_Father: {fileID: 7526606467181400889}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5471046573318444867
@@ -561,6 +561,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3610900287835578930}
+  - component: {fileID: 6233149458685069125}
   m_Layer: 0
   m_Name: HpBarSocket
   m_TagString: Untagged
@@ -576,12 +577,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5732044491008987892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.847, z: 0.153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 103313563527702735}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6233149458685069125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5732044491008987892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aca8f8650818a344ab8c7f048cfbb2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6891284607085568956
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +634,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7535884519370465907}
+  - component: {fileID: 7526606467181400889}
   - component: {fileID: 6733470186600981730}
   - component: {fileID: 2805282659456975344}
   - component: {fileID: 6665956868632803651}
@@ -638,15 +651,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7535884519370465907
-RectTransform:
+--- !u!4 &7526606467181400889
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7060719048290443826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 15.068951}
+  m_LocalPosition: {x: -4.8091965, y: -3.3459792e-16, z: 15.068951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9035206572096334527}
@@ -657,11 +670,6 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.8091965, y: -3.3459792e-16}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &6733470186600981730
 Animator:
   serializedVersion: 3
@@ -707,7 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statesHolder: {fileID: 6395480844898440864}
   eyesForDetect: {fileID: 191991022235219068}
-  hpBarSocket: {fileID: 3610900287835578930}
+  uiDistanceToPlayer: {fileID: 6233149458685069125}
 --- !u!54 &1113685063648501478
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -785,7 +793,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 150
@@ -793,7 +801,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

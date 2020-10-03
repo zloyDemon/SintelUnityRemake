@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NpcHpBar : MonoBehaviour
+public class NpcHpBar : UiForGO
 {
     [SerializeField] Image hpIndicator;
 
     private float maxWidth;
     private CharacterData characterData;
 
-    public FollowGOView FollowGOView { get; private set; }
-
     private void Awake()
     {
-        FollowGOView = GetComponent<FollowGOView>();
         maxWidth = hpIndicator.rectTransform.rect.width;
-        ActiveHPBar(false);
     }
 
     public void SetCharacterData(CharacterData data)

@@ -17,6 +17,15 @@ public class DevMainMenu : MonoBehaviour
 
     private void LoadLevel(string levelName)
     {
+        //StartCoroutine(CorLoadScene(levelName));
         SceneManager.LoadScene(levelName);
+    }
+
+    IEnumerator CorLoadScene(string name)
+    {
+        var loadingScene = SceneManager.LoadSceneAsync(name, LoadSceneMode.Single);
+        while (!loadingScene.isDone)
+            yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
     }
 }

@@ -12,6 +12,7 @@ public class MenuButtons : MonoBehaviour
     }
 
     [MenuItem("SintelUtils/Open Trello")]
+
     public static void OpenTrello()
     {
         string url = "https://trello.com/b/raXrmVSs/sintelunityremake";

@@ -9,9 +9,6 @@ public class BugController : AIBaseBehaviour
     private const float BugSpeed = 3f;
     private const float BugRotationSpeed = 200f;
 
-    [SerializeField] Transform eyesForDetect;
-    [SerializeField] Transform hpBarSocket; // Todo;
-
     private SintelAnimatorController sintelAnimator;
     private bool isFollowToTarget;
     private bool isNearToPlayer;
@@ -25,7 +22,8 @@ public class BugController : AIBaseBehaviour
         Target = SintelPlayer.transform;
         MoveComponent.SetMoveSpeed(4);
         MoveComponent.SetRotationSpeed(200);
-        
+        UiDistanceToPlayer.Init(transform);
+        UiDistanceToPlayer.SetDistanceToCheck(20);
         sintelAnimator.AnimationEvent += OnAnimationEventHandle;
         characterData.OnHealthChange += OnHealthChange;
     }
@@ -72,14 +70,14 @@ public class BugController : AIBaseBehaviour
     private bool CheckTarget(Transform target)
     {
         bool result = false;
-        var directionToTarget = (target.position - eyesForDetect.position).normalized;
+        var directionToTarget = (target.position - EyesForDetect.position).normalized;
 
-        if (Physics.Raycast(eyesForDetect.position, directionToTarget, out RaycastHit hitInfo, 10))
+        if (Physics.Raycast(EyesForDetect.position, directionToTarget, out RaycastHit hitInfo, 10))
         {
             if (hitInfo.collider != null && hitInfo.collider.CompareTag(target.tag))
             {
                 result = true;
-                Debug.DrawLine(eyesForDetect.position, target.position, Color.yellow);
+                Debug.DrawLine(EyesForDetect.position, target.position, Color.yellow);
             }
         }
 
@@ -123,7 +121,7 @@ public class BugController : AIBaseBehaviour
         var data = attackTo.GetComponent<CharacterData>();
         if(data != null)
         {
-            if (Physics.Raycast(eyesForDetect.position, transform.forward, out RaycastHit hitInfo, 0.5f))
+            if (Physics.Raycast(EyesForDetect.position, transform.forward, out RaycastHit hitInfo, 0.5f))
             {
                 if (hitInfo.collider != null && hitInfo.collider.CompareTag(attackTo.tag))
                     data.Damage(4);
@@ -135,7 +133,7 @@ public class BugController : AIBaseBehaviour
     {
         base.Death();
         sintelAnimator.SetTrigger(SintelGameParameters.BugAnimatorsParameters.Death, true);
-        SintelGameManager.Instance.GameUI.NpcUiController.DeleteBarFromNpc(transform);
+        UiDistanceToPlayer.DisableView();
         StartCoroutine(CorDeath());
     }
 
@@ -148,8 +146,6 @@ public class BugController : AIBaseBehaviour
     {
         CurrentState?.Tick();
         //SetVeleoperValues(); // Comment if dont need it
-        if (characterData.IsAlive)
-           IsNearToPlayer();
     }
 
     private void SetVeleoperValues()
@@ -157,20 +153,6 @@ public class BugController : AIBaseBehaviour
         DevelopViewManager.Instance.SetValue("State", CurrentState?.ToString());
         DevelopViewManager.Instance.SetValue("Distance", DistanceToTarget(SintelPlayer.transform));
         DevelopViewManager.Instance.SetValue("DistanceFromEyes", (SintelPlayer.transform.position - transform.position).magnitude);
-    }
-
-    private void IsNearToPlayer()
-    {
-        if (DistanceToTarget(SintelPlayer.transform) < 5 && !isNearToPlayer)
-        {
-            SintelGameManager.Instance.GameUI.NpcUiController.SetBarForNpc(hpBarSocket, GetComponent<CharacterData>());
-            isNearToPlayer = true;
-        }
-        else if (DistanceToTarget(SintelPlayer.transform) > 6 && isNearToPlayer)
-        {
-            SintelGameManager.Instance.GameUI.NpcUiController.DeleteBarFromNpc(transform);
-            isNearToPlayer = false;
-        }
     }
 
     private void OnAnimationEventHandle(int value)

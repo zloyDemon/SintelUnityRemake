@@ -8,6 +8,8 @@ abstract public class AIBaseBehaviour : MonoBehaviour
 {
     [Header("Base class")]
     [SerializeField] Transform statesHolder;
+    [SerializeField] Transform eyesForDetect;
+    [SerializeField] UiDistanceToPlayer uiDistanceToPlayer;
 
     public NavMeshAgent Agent { get; private set; }
     public SintelAgent SintelAgent { get; private set; }
@@ -16,6 +18,8 @@ abstract public class AIBaseBehaviour : MonoBehaviour
     public AIBaseState CurrentState { get; private set; }
     public SintelPlayer SintelPlayer { get; private set; }
     public Transform Target { get; set; }
+    public Transform EyesForDetect => eyesForDetect;
+    public UiDistanceToPlayer UiDistanceToPlayer => uiDistanceToPlayer;
 
     public virtual void Awake()
     {

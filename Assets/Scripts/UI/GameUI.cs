@@ -12,9 +12,10 @@ public class GameUI : MonoBehaviour
     [SerializeField] Image hpBar;
     [SerializeField] Image compassView;
     [SerializeField] NpcUiController npcUiController;
+    [SerializeField] GameObjecUIController gameObjecUIController;
 
     public Canvas GameCanvas => gameCanvas;
-    public NpcUiController NpcUiController => npcUiController;
+    public GameObjecUIController GameObjecUIController  => gameObjecUIController;
 
     private CanvasGroup hpHitCG;
     private CharacterData characterData;
