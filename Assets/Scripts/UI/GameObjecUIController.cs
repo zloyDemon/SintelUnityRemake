@@ -12,37 +12,14 @@ public class GameObjecUIController : MonoBehaviour
 
     private Dictionary<Transform, NpcHpBar> uiForGoList = new Dictionary<Transform, NpcHpBar>();
 
-    private List<UiForGO> npcHpBarPool = new List<UiForGO>();
-
-
     private void Awake()
     {
-        InitNpcBars();
-    }
-
-    private void InitNpcBars()
-    {
-        int count = 3;
-        for(int i = 0; i < count; i++)
-        {
-            var go = Instantiate(npcHpBarPrefab, GoUiCanvas.transform);
-            npcHpBarPool.Add(go);
-            go.gameObject.SetActive(false);
-        }
-    }
-
-    public void RequestToViewObject(Transform target, CharacterData data) 
-    {
-        var hpBar = Instantiate(npcHpBarPrefab);
-        hpBar.SetTargetTransform(target);
-        hpBar.transform.SetParent(goUICanvas.transform);
-        hpBar.SetCharacterData(data);
-        uiForGoList.Add(target, hpBar);
+        //InitNpcBars();
     }
 
     public T RequestView<T>(Transform target, Action<T> initialization = null, Vector3 offset = default) where T : UiForGO
     {
-        var newView = GetFromPool() as NpcHpBar;
+        var newView = PoolManager.Instance.GetFromPool<NpcHpBar>();
         newView.SetTargetTransform(target, offset);
         newView.transform.SetParent(goUICanvas.transform);
         uiForGoList.Add(target, newView);
@@ -59,24 +36,6 @@ public class GameObjecUIController : MonoBehaviour
         currentBar.SetTargetTransform(null);
         currentBar.DeleteCharacterData();
         uiForGoList.Remove(target);
-        PutOnPool(currentBar);
-    }
-
-    private UiForGO GetFromPool()
-    {
-        var o = npcHpBarPool.Find(e => e.gameObject.activeSelf == false);
-        if(o == null)
-        {
-            var go = Instantiate(npcHpBarPrefab);
-            npcHpBarPool.Add(go);
-            return go;
-        }
-
-        return o;
-    }
-
-    private void PutOnPool(UiForGO o)
-    {
-        o.gameObject.SetActive(false);
+        PoolManager.Instance.ReturnToPool(currentBar);
     }
 }
