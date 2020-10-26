@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    [Header("Original pefabs")]
-    [SerializeField] NpcHpBar npcBarPrefab;
-
     private Dictionary<Type, Pool> pools = new Dictionary<Type, Pool>();
 
     public static PoolManager Instance { get; private set; }
@@ -19,13 +16,11 @@ public class PoolManager : MonoBehaviour
         if (Instance == null)
             Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        InitPool();
     }
 
-    public void AddToPool<T>(T prefab) where T : MonoBehaviour
+    public void AddToPool<T>(T prefab, int amount) where T : MonoBehaviour
     {
-        AddToDictionary(prefab);
+        AddToDictionary(prefab, amount);
     }
 
     public T GetFromPool<T>() where T : MonoBehaviour
@@ -53,12 +48,7 @@ public class PoolManager : MonoBehaviour
         pools[type].ReturnToPool(returnObject.gameObject);
     }
 
-    private void InitPool()
-    {
-        AddToDictionary(npcBarPrefab);    
-    }
-
-    private void AddToDictionary<T>(T prefab) where T : MonoBehaviour
+    private void AddToDictionary<T>(T prefab, int amount) where T : MonoBehaviour
     {
         Type type = prefab.GetType();
 
@@ -70,7 +60,7 @@ public class PoolManager : MonoBehaviour
 
         var go = new GameObject(type.Name);
         go.transform.SetParent(transform);
-        var newPool = new Pool(prefab.gameObject);
+        var newPool = new Pool(prefab.gameObject, amount);
         newPool.SetParent(go.transform);
         pools.Add(prefab.GetType(), newPool); 
     }

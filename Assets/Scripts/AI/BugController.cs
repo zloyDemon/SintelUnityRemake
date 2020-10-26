@@ -24,6 +24,7 @@ public class BugController : AIBaseBehaviour
         MoveComponent.SetRotationSpeed(200);
         UiDistanceToPlayer.Init(transform);
         UiDistanceToPlayer.SetDistanceToCheck(20);
+        UiDistanceToPlayer.PlayerNear += OnPlayerNear;
         sintelAnimator.AnimationEvent += OnAnimationEventHandle;
         characterData.OnHealthChange += OnHealthChange;
     }
@@ -37,6 +38,7 @@ public class BugController : AIBaseBehaviour
     {
         sintelAnimator.AnimationEvent -= OnAnimationEventHandle;
         characterData.OnHealthChange -= OnHealthChange;
+        UiDistanceToPlayer.PlayerNear -= OnPlayerNear;
     }
 
     private void InitStates()
@@ -104,6 +106,15 @@ public class BugController : AIBaseBehaviour
         return distance;
     }
 
+    private void OnPlayerNear(bool isNear)
+    {
+        if (isNear && characterData.IsAlive)
+            SintelGameManager.Instance.GameUI.GameObjecUIController.RequestView<NpcHpBar>(UiDistanceToPlayer.transform,
+                b => b.SetCharacterData(characterData));
+        else
+            SintelGameManager.Instance.GameUI.GameObjecUIController.DisableView(UiDistanceToPlayer.transform);
+    }
+
     private void OnHealthChange(int oldValue, int newValue)
     {
         if (newValue == 0)
@@ -132,7 +143,7 @@ public class BugController : AIBaseBehaviour
     {
         base.Death();
         sintelAnimator.SetTrigger(SintelGameParameters.BugAnimatorsParameters.Death, true);
-        UiDistanceToPlayer.DisableView();
+        SintelGameManager.Instance.GameUI.GameObjecUIController.DisableView(UiDistanceToPlayer.transform);
         StartCoroutine(CorDeath());
     }
 

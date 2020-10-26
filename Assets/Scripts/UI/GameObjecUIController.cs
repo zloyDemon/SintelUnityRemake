@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameObjecUIController : MonoBehaviour
 {
     [SerializeField] Canvas goUICanvas;
-    [SerializeField] NpcHpBar npcHpBarPrefab;
+    [SerializeField] NpcHpBar npcHpBar;
 
     public Canvas GoUiCanvas => goUICanvas;
 
@@ -14,7 +14,7 @@ public class GameObjecUIController : MonoBehaviour
 
     private void Awake()
     {
-        //InitNpcBars();
+        PoolManager.Instance.AddToPool<NpcHpBar>(npcHpBar, 10);
     }
 
     public T RequestView<T>(Transform target, Action<T> initialization = null, Vector3 offset = default) where T : UiForGO

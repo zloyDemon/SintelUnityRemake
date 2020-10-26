@@ -556,7 +556,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6629503613927766617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -286.70108}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3957434251447120486}
@@ -565,8 +565,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 282.7898, y: -234.01553}
-  m_SizeDelta: {x: 1071, y: 546}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7459814679118998710
 CanvasRenderer:
@@ -589,8 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goUICanvas: {fileID: 4930190929995286812}
-  npcHpBarPrefab: {fileID: 576250521674595034, guid: aff23657009f3d34e83bdae670c9a78c,
-    type: 3}
+  npcHpBar: {fileID: 576250521674595034, guid: aff23657009f3d34e83bdae670c9a78c, type: 3}
 --- !u!1 &7073420776481551744
 GameObject:
   m_ObjectHideFlags: 0

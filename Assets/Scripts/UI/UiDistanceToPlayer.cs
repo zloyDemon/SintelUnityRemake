@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class UiDistanceToPlayer : MonoBehaviour
     private Transform player;
     private float distanceToCheck;
     private bool isPlayerNear = false;
+
+    public event Action<bool> PlayerNear = b => { };
 
     private void Awake()
     {
@@ -29,27 +32,17 @@ public class UiDistanceToPlayer : MonoBehaviour
         if(IsPlayerNearDistance() && !isPlayerNear)
         {
             isPlayerNear = true;
-            RequestForView();
+            PlayerNear(isPlayerNear);
         }
         else if(!IsPlayerNearDistance() && isPlayerNear)
         {
             isPlayerNear = false;
-            DisableView();
+            PlayerNear(isPlayerNear);
         }
     }
 
     private bool IsPlayerNearDistance()
     {
         return (player.position - entity.position).sqrMagnitude <= distanceToCheck;
-    }
-
-    public void RequestForView()
-    {
-         SintelGameManager.Instance.GameUI.GameObjecUIController.RequestView<NpcHpBar>(transform, b => b.SetCharacterData(entity.GetComponent<CharacterData>()));
-    }
-
-    public void DisableView()
-    {
-        SintelGameManager.Instance.GameUI.GameObjecUIController.DisableView(transform);
     }
 }

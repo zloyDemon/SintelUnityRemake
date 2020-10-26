@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FollowGOView : MonoBehaviour
 {
-    Transform target;
+    RectTransform target;
     Vector3 offset;
 
-    public void SetFollowTarget(Transform target)
+    public void SetFollowTarget(RectTransform target)
     {
         this.target = target;
         UpdatePosition();
