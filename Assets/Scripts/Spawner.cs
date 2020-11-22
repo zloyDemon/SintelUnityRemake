@@ -8,12 +8,13 @@ public class Spawner : MonoBehaviour
 
     public BugController SpawnBug(Vector3 position, Quaternion rotation)
     {
-        return SpawnObject<BugController>(bugControllerPrefab.gameObject, position, rotation);
+        var bug = SpawnObject<BugController>(bugControllerPrefab.gameObject, position, rotation);
+        return bug;
     }
 
     private T SpawnObject<T>(GameObject originalPrefab, Vector3 position, Quaternion rotation) where T : MonoBehaviour
     {
         var spawnedObject = Instantiate(originalPrefab, position, rotation);
-        return spawnedObject as T;
+        return spawnedObject.GetComponent<T>();
     }
 }

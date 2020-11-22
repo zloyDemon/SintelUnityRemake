@@ -29,6 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1337412990412761119}
+  - {fileID: 4907366274871546172}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,6 +49,7 @@ MonoBehaviour:
     type: 3}
   gameUI: {fileID: 5665028177163448647, guid: e809a258acb26334fb274b0c93c6bb80, type: 3}
   spawner: {fileID: 1517532533653702725}
+  questController: {fileID: 1839597037209642296}
   sintelPlayerPrefab: {fileID: 2254894273639901678, guid: 99ea51f574fb979479d83e9091700a5c,
     type: 3}
   bugPrefab: {fileID: 6665956868632803651, guid: fad9bd69c7ba13e44a0f34c61cd45737,
@@ -97,3 +99,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugControllerPrefab: {fileID: 6665956868632803651, guid: fad9bd69c7ba13e44a0f34c61cd45737,
     type: 3}
+--- !u!1 &8615458802863085244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4907366274871546172}
+  - component: {fileID: 1839597037209642296}
+  m_Layer: 0
+  m_Name: QuestController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4907366274871546172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615458802863085244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 782486506811235560}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1839597037209642296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615458802863085244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc8c49c67e8cef49a71c9e3a4db1aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - {fileID: 3956556918869629247, guid: 1ce7b74751a91a742aa0f60f0d0a327c, type: 3}

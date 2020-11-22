@@ -64,7 +64,7 @@ public class SintelPlayer : MonoBehaviour
     private void Update()
     {
         CheckRaycastHit();
-        DevelopViewManager.Instance.SetValue("SintelPosition", transform.position.ToString());
+        //DevelopViewManager.Instance.SetValue("SintelPosition", transform.position.ToString());
     }
 
     private void FixedUpdate()
@@ -79,13 +79,13 @@ public class SintelPlayer : MonoBehaviour
 
             if (sintelInput.GetInput<bool>(SintelInput.SintelInputType.Sprint) && isGround)
             {
-                moveComponent.SetMoveSpeed(RunSpeed);
-                currentMoveState = SintelMoveState.Run;
+                moveComponent.SetMoveSpeed(WalkSpeed);
+                currentMoveState = SintelMoveState.Walk;
             }
             else
             {
-                moveComponent.SetMoveSpeed(WalkSpeed);
-                currentMoveState = SintelMoveState.Walk;
+                moveComponent.SetMoveSpeed(RunSpeed);
+                currentMoveState = SintelMoveState.Run;
             }
 
             moveComponent.RotateTo(currentDirection);

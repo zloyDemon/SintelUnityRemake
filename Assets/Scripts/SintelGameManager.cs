@@ -9,6 +9,7 @@ public class SintelGameManager : MonoBehaviour
     [SerializeField] CinemachineFreeLook cinemachineFreeLook;
     [SerializeField] GameUI gameUI;
     [SerializeField] Spawner spawner;
+    [SerializeField] QuestController questController;
 
     [Header("Characters prefabs")]
     [SerializeField] SintelPlayer sintelPlayerPrefab;
@@ -24,6 +25,7 @@ public class SintelGameManager : MonoBehaviour
     public Camera MainCamera => Camera.main;
     public SintelPlayer SintelPlayer { get; private set; }
     public GameUI GameUI { get; private set; }
+    public QuestController QuestController => questController;
     public Spawner Spawner => spawner;
 
     private void Awake()
@@ -50,7 +52,6 @@ public class SintelGameManager : MonoBehaviour
 
     IEnumerator CorInitGameObjects()
     {
-        yield return new WaitForEndOfFrame();
         FindLevelData();
         yield return new WaitForEndOfFrame();
         yield return InitCharacter();
@@ -58,16 +59,12 @@ public class SintelGameManager : MonoBehaviour
         GameUI = Instantiate(gameUI);
         GameUI.Init(SintelPlayer.GetComponent<CharacterData>());
         yield return new WaitForEndOfFrame();
-        Spawner.SpawnBug(levelData.BugSpawnPosition.position, Quaternion.identity);
-        Spawner.SpawnBug(levelData.BugSpawnPosition.position, Quaternion.identity);
-        yield return new WaitForEndOfFrame();
         OnLevelLoaded();
         Debug.Log("Game loaded.");
     }
 
     IEnumerator InitCharacter()
     {
-        yield return new WaitForEndOfFrame();
         SpawnSintelPlayer();
         yield return new WaitForEndOfFrame();
         InitCamera();

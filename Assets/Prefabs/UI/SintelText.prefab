@@ -60,12 +60,13 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7657b5bc90d29c4458e181681b7310d4, type: 3}
+    m_Font: {fileID: 12800000, guid: 0f0f7d5e118ff764fa7c250cfbe25311, type: 3}
     m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
