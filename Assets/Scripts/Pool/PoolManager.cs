@@ -18,9 +18,9 @@ public class PoolManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void AddToPool<T>(T prefab, int amount) where T : MonoBehaviour
+    public void AddToPool<T>(T prefab, int amount, string containerName = "") where T : MonoBehaviour
     {
-        AddToDictionary(prefab, amount);
+        AddToDictionary(prefab, amount, containerName);
     }
 
     public T GetFromPool<T>() where T : MonoBehaviour
@@ -48,7 +48,7 @@ public class PoolManager : MonoBehaviour
         pools[type].ReturnToPool(returnObject.gameObject);
     }
 
-    private void AddToDictionary<T>(T prefab, int amount) where T : MonoBehaviour
+    private void AddToDictionary<T>(T prefab, int amount, string name = "") where T : MonoBehaviour
     {
         Type type = prefab.GetType();
 
@@ -58,7 +58,8 @@ public class PoolManager : MonoBehaviour
             return;
         }
 
-        var go = new GameObject(type.Name);
+        var contanerName = string.IsNullOrEmpty(name) ? type.Name : name;
+        var go = new GameObject(contanerName);
         go.transform.SetParent(transform);
         var newPool = new Pool(prefab.gameObject, amount);
         newPool.SetParent(go.transform);
