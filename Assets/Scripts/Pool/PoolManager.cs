@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class PoolManager : MonoBehaviour
 {
@@ -18,12 +19,12 @@ public class PoolManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void AddToPool<T>(T prefab, int amount, string containerName = "") where T : MonoBehaviour
+    public void AddToPool<T>(T prefab, int amount, string containerName = "") where T : Component
     {
         AddToDictionary(prefab, amount, containerName);
     }
 
-    public T GetFromPool<T>() where T : MonoBehaviour
+    public T GetFromPool<T>() where T : Object
     {
         Type type = typeof(T);
         if (!pools.ContainsKey(type))
@@ -36,7 +37,7 @@ public class PoolManager : MonoBehaviour
         return result.GetComponent<T>();
     }
 
-    public void ReturnToPool<T>(T returnObject) where T : MonoBehaviour
+    public void ReturnToPool<T>(T returnObject) where T : Component
     {
         Type type = returnObject.GetType();
         if (!pools.ContainsKey(type))
@@ -48,7 +49,7 @@ public class PoolManager : MonoBehaviour
         pools[type].ReturnToPool(returnObject.gameObject);
     }
 
-    private void AddToDictionary<T>(T prefab, int amount, string name = "") where T : MonoBehaviour
+    private void AddToDictionary<T>(T prefab, int amount, string name = "") where T : Component
     {
         Type type = prefab.GetType();
 
@@ -58,6 +59,7 @@ public class PoolManager : MonoBehaviour
             return;
         }
 
+        
         var contanerName = string.IsNullOrEmpty(name) ? type.Name : name;
         var go = new GameObject(contanerName);
         go.transform.SetParent(transform);
