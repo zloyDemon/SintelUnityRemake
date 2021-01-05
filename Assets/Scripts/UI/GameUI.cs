@@ -10,7 +10,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] Canvas gameCanvas;
     [SerializeField] Image hpHit;
     [SerializeField] Image hpBar;
-    [SerializeField] Text subtitle;
+    [SerializeField] SintelUIText subtitle;
     [SerializeField] GameObjecUIController gameObjecUIController;
     [SerializeField] QuestGameUIView questGameUIView;
 
@@ -26,7 +26,7 @@ public class GameUI : MonoBehaviour
     {
         hpHitCG = hpHit.GetComponent<CanvasGroup>();
         hpHitCG.alpha = 0;
-        subtitle.text = string.Empty;
+        subtitle.Text = string.Empty;
     }
 
     private void OnDestroy()
@@ -89,10 +89,10 @@ public class GameUI : MonoBehaviour
 
     private IEnumerator CorShowSubtitle(string text)
     {
-        subtitle.text = text;
+        subtitle.Text = text;
         var waitTime = text.Length * 0.15f;
         yield return new WaitForSeconds(waitTime);
-        subtitle.text = string.Empty;
+        subtitle.Text = string.Empty;
         corShowSubtitle = null;
     }
 }

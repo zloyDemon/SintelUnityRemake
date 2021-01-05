@@ -9,14 +9,14 @@ public class CompasView : MonoBehaviour
     [SerializeField] HorizontalLayoutGroup horizontalGroup;
     [SerializeField] RectTransform compassContainer;
     [Header("Compass letters")]
-    [SerializeField] Text northLetter;
-    [SerializeField] Text southLetter;
-    [SerializeField] Text eastLetter;
-    [SerializeField] Text westLetter;
-    [SerializeField] Text northWestLetter;
-    [SerializeField] Text northEastLetter;
-    [SerializeField] Text southWestLetter;
-    [SerializeField] Text southEastLetter;
+    [SerializeField] SintelUIText northLetter;
+    [SerializeField] SintelUIText southLetter;
+    [SerializeField] SintelUIText eastLetter;
+    [SerializeField] SintelUIText westLetter;
+    [SerializeField] SintelUIText northWestLetter;
+    [SerializeField] SintelUIText northEastLetter;
+    [SerializeField] SintelUIText southWestLetter;
+    [SerializeField] SintelUIText southEastLetter;
 
     [SerializeField] Image targetIcon;
 
@@ -46,6 +46,14 @@ public class CompasView : MonoBehaviour
         letters.Add(northEastLetter.transform, new Vector3(1, 0, 1));
         letters.Add(southWestLetter.transform, new Vector3(-1, 0, -1));
         letters.Add(southEastLetter.transform, new Vector3(1, 0, -1));
+        northLetter.Text = "N";
+        southLetter.Text = "S";
+        eastLetter.Text = "E";
+        westLetter.Text = "W";
+        northWestLetter.Text = "NW";
+        northEastLetter.Text = "NE";
+        southWestLetter.Text = "SW";
+        southEastLetter.Text = "SE";
     }
 
     private void Update()

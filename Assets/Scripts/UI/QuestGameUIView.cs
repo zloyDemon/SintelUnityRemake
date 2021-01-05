@@ -11,12 +11,12 @@ public class QuestGameUIView : MonoBehaviour
 
     [Header("Quest info")]
     [SerializeField] Transform _questInfoHolder;
-    [SerializeField] Text _mainQuestTitle;
-    [SerializeField] Text _currentSubQuestText;
+    [SerializeField] SintelUIText _mainQuestTitle;
+    [SerializeField] SintelUIText _currentSubQuestText;
     [Header("Quest completed label")]
     [SerializeField] CanvasGroup _questLabelHolder;
-    [SerializeField] Text _questCompletedLabel;
-    [SerializeField] Text _questCompletedName;
+    [SerializeField] SintelUIText _questCompletedLabel;
+    [SerializeField] SintelUIText _questCompletedName;
 
     private SintelQuest _currentSintelQuest;
     private ObjectivePoint _currentObjectivePoint;
@@ -33,7 +33,7 @@ public class QuestGameUIView : MonoBehaviour
     {
         _gameObjecUIController = SintelGameManager.Instance.GameUI.GameObjecUIController;
         _questLabelHolder.alpha = 0;
-        _questCompletedLabel.text = "Quest completed";
+        _questCompletedLabel.Text = "Quest completed";
         _currentObjectivePoint = _gameObjecUIController.RequestView<ObjectivePoint>();
     }
 
@@ -55,7 +55,7 @@ public class QuestGameUIView : MonoBehaviour
         _currentSintelQuest = sintelQuest;
         _currentSintelQuest.SubQuest_Changed += OnSubQuestChanged;
         _currentSintelQuest.QuestCompleted += OnQuestCompleted;
-        _mainQuestTitle.text = _currentSintelQuest.QuestTitle;
+        _mainQuestTitle.Text = _currentSintelQuest.QuestTitle;
         _currentObjectivePoint.gameObject.SetActive(true);
         OnSubQuestChanged(null, _currentSintelQuest.CurrentSubQuest);
     }
@@ -69,7 +69,7 @@ public class QuestGameUIView : MonoBehaviour
 
         newSubQuest.TargetCompleted += OnSubQuestTargetComplete;
         firstTarget = newSubQuest.Targets[0];
-        _currentSubQuestText.text = newSubQuest.Task;
+        _currentSubQuestText.Text = newSubQuest.Task;
         _currentObjectivePoint.Init(firstTarget.transform);
         _currentObjectivePoint.GetComponent<FollowGOView>().SetFollowTarget(firstTarget);
         _currentObjectivePoint.GetComponent<FollowGOView>().SetOffset(0, ObjectivePointOffsetUp);
@@ -86,7 +86,7 @@ public class QuestGameUIView : MonoBehaviour
 
     private void OnQuestCompleted(SintelQuest sintelQuest)
     {
-        _questCompletedName.text = sintelQuest.QuestTitle;
+        _questCompletedName.Text = sintelQuest.QuestTitle;
         _questInfoHolder.gameObject.SetActive(false);
         Sequence sequence = DOTween.Sequence();
         sequence.Append(_questLabelHolder.DOFade(1, 2f));

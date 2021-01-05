@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class ObjectivePoint : UiForGO
 {
     [SerializeField] Image objectiveIcon;
-    [SerializeField] Text distanceText;
+    [SerializeField] SintelUIText distanceText;
 
     private Transform player;
     private Transform target;
@@ -16,7 +16,7 @@ public class ObjectivePoint : UiForGO
     {
         set
         {
-            distanceText.text = value;
+            distanceText.Text = value;
         }
     }
 

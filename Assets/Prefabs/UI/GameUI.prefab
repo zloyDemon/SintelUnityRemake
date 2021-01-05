@@ -48,7 +48,7 @@ MonoBehaviour:
   gameCanvas: {fileID: 0}
   hpHit: {fileID: 3051067283749086385}
   hpBar: {fileID: 5372443219930611734}
-  subtitle: {fileID: 8747111361381952066}
+  subtitle: {fileID: 8900214615022552436}
   gameObjecUIController: {fileID: 6187651111412208395}
   questGameUIView: {fileID: 4429620144599667845}
 --- !u!1 &2668186009230932869
@@ -935,7 +935,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -985,6 +985,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2839843966047884465}
     m_Modifications:
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_text
+      value: Subtitle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_characterSpacing
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7019318283761903126, guid: 22325f767323f654bb2d30e8369d71dd,
         type: 3}
       propertyPath: m_Name
@@ -1142,16 +1172,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22325f767323f654bb2d30e8369d71dd, type: 3}
---- !u!114 &8747111361381952066 stripped
+--- !u!114 &8900214615022552436 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7019318283761903208, guid: 22325f767323f654bb2d30e8369d71dd,
+  m_CorrespondingSourceObject: {fileID: 7172459264421972318, guid: 22325f767323f654bb2d30e8369d71dd,
     type: 3}
   m_PrefabInstance: {fileID: 1732297862793661482}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8747111361381952060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 11500000, guid: 9670d552f70932848b94b0309e2dcbb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8747111361381952061 stripped

@@ -643,6 +643,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 360324125}
     m_Modifications:
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_text
+      value: Docks level
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7019318283761903126, guid: 22325f767323f654bb2d30e8369d71dd,
         type: 3}
       propertyPath: m_Name
@@ -1461,7 +1506,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1641,6 +1686,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 109007489}
     m_Modifications:
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_text
+      value: Develop
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542379185596912831, guid: 22325f767323f654bb2d30e8369d71dd,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7019318283761903126, guid: 22325f767323f654bb2d30e8369d71dd,
         type: 3}
       propertyPath: m_Name
