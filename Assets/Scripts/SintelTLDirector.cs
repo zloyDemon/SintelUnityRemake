@@ -23,14 +23,15 @@ public class SintelTLDirector : MonoBehaviour
 
     public void PlayTimeline()
     {
-        if (!director.gameObject.activeSelf)
-            director.gameObject.SetActive(true);
+        if (!gameObject.activeSelf)
+            gameObject.SetActive(true);
         director.Play();
-        director.played += OnTimelindePlayed;
+        director.stopped += OnTimelindePlayed;
     }
 
     private void OnTimelindePlayed(PlayableDirector d)
     {
+        director.played -= OnTimelindePlayed;
         OnTimelinePlayed(d);
     }
 }

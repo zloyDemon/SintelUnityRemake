@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.Playables;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IntroScene : SintelTLDirector
@@ -15,8 +11,6 @@ public class IntroScene : SintelTLDirector
     [Header("Logos in different labguage")]
     [SerializeField] Sprite rusLogo;
     [SerializeField] Sprite engLogo;
-
-    private PlayableDirector director;
 
     public override void Init()
     {
