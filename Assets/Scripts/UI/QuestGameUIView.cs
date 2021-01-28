@@ -33,7 +33,7 @@ public class QuestGameUIView : MonoBehaviour
     {
         _gameObjecUIController = SintelGameManager.Instance.GameUI.GameObjecUIController;
         _questLabelHolder.alpha = 0;
-        _questCompletedLabel.Text = "Quest completed";
+        _questCompletedLabel.Text = LocalizationManager.GetString("gui.questCompleted");
         _currentObjectivePoint = _gameObjecUIController.RequestView<ObjectivePoint>();
     }
 

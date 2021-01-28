@@ -1,0 +1,166 @@
+{
+  "gui.menu.newgame": {
+    "Russian": "Новая игра",
+    "English": "New game"
+  },
+  "gui.menu.extras": {
+    "Russian": "Экстра",
+    "English": "Extras"
+  },
+  "gui.menu.options": {
+    "Russian": "Опции",
+    "English": "Options"
+  },
+  "gui.game.exit": {
+    "Russian": "Выход",
+    "English": "Exit"
+  },
+  "gui.game.options.textOnTop": {
+    "Russian": "Некоторые настройки требуют перезапуск игры",
+    "English": "Some settings require a game restart"
+  },
+  "gui.game.options.resolution": {
+    "Russian": "Разрешение",
+    "English": "Resolution"
+  },
+  "gui.game.options.fullScreen": {
+    "Russian": "Полный экран",
+    "English": "Full Screen"
+  },
+  "gui.game.options.paslEffect": {
+    "Russian": "Эффект пасла",
+    "English": "Pasl Effect"
+  },
+  "gui.game.options.ssao": {
+    "Russian": "SSAO",
+    "English": "SSAO"
+  },
+  "gui.game.options.levelOfDetails": {
+    "Russian": "Уровень детализации",
+    "English": "Level of details"
+  },
+  "gui.game.options.difficulty": {
+    "Russian": "Сложность",
+    "English": "Difficulty"
+  },
+  "gui.game.options.uiScale": {
+    "Russian": "Масштаб",
+    "English": "UIScale"
+  },
+  "gui.game.options.language": {
+    "Russian": "Язык",
+    "English": "Language"
+  },
+  "gui.game.options.returnAndDiscard": {
+    "Russian": "Выйти и отменить изменения",
+    "English": "Return & Discard Changes"
+  },
+  "gui.game.options.returnAndSave": {
+    "Russian": "Выйти и сохранить изменения",
+    "English": "Return & Save Changes"
+  },
+  "gui.game.yes": {
+    "Russian": "Да",
+    "English": "Yes"
+  },
+  "gui.game.no": {
+    "Russian": "Нет",
+    "English": "No"
+  },
+  "gui.menu.extras.credits": {
+    "Russian": "Авторы",
+    "English": "Credits"
+  },
+  "gui,menu.return": {
+    "Russian": "Вернуться",
+    "English": "Return"
+  },
+  "gui.menu.options.language.ru": {
+    "Russian": "Русский",
+    "English": "Русский"
+  },
+  "gui.menu.options.language.en": {
+    "Russian": "English",
+    "English": "English"
+  },
+  "gui.loading": {
+    "Russian": "Загрузка",
+    "English": "Loading"
+  },
+  "gui.game.compass.n": {
+    "Russian": "С",
+    "English": "N"
+  },
+  "gui.game.compass.s": {
+    "Russian": "Ю",
+    "English": "S"
+  },
+  "gui.game.compass.e": {
+    "Russian": "В",
+    "English": "E"
+  },
+  "gui.game.compass.w": {
+    "Russian": "З",
+    "English": "W"
+  },
+  "gui.game.compass.nw": {
+    "Russian": "СЗ",
+    "English": "NW"
+  },
+  "gui.game.compass.ne": {
+    "Russian": "СВ",
+    "English": "NE"
+  },
+  "gui.game.compass.sw": {
+    "Russian": "ЮВ",
+    "English": "SW"
+  },
+  "gui.game.compass.se": {
+    "Russian": "ЮЗ",
+    "English": "SE"
+  },
+  "gui.questCompleted": {
+    "Russian": "Задание выполнено",
+    "English": "Quest completed"
+  },
+  "quest.welcome.title": {
+    "Russian": "Добро пожаловать, Синтел.",
+    "English": "Welcome, Sintel."
+  },
+  "quest.welcome.sq.talkToArya": {
+    "Russian": "Поговорите с Арьей.",
+    "English": "Talk to Arya."
+  },
+  "quest.welcome.sq.moveToDock": {
+    "Russian": "Отправляйтесь в доки.",
+    "English": "Go to the docks."
+  },
+  "quest.welcome.sq.killBugs": {
+    "Russian": "Убейте жуков.",
+    "English": "Kill the bugs."
+  },
+  "quest.welcome.sq.returnToArya": {
+    "Russian": "Вернитесь к Арье.",
+    "English": "Return to Arya."
+  },
+  "quest.welcome.subt.arya_dg_1": {
+    "Russian": "Синтел, тебе нужно спуститься в доки.",
+    "English": "Sintel, you need to go down to the docks."
+  },
+  "quest.welcome.subt.sintel_bugs_dg": {
+    "Russian": "Жуки! Нужно расправиться с ними.",
+    "English": "Bugs! I need to kill them."
+  },
+  "quest.welcome.subt.arya_dg_2": {
+    "Russian": "Отлично, Синтел. Спасибо.",
+    "English": "Great, Sintel. Thank you."
+  },
+  "intro.author": {
+    "Russian": "Марат Якушев\\nпредставляет.",
+    "English": "Marat Yakushev\\npresents."
+  },
+  "intro.based": {
+    "Russian": "Основано на одноименной игре\\nкомпании Blender Foundation.",
+    "English": "Base on original game\\nby Blender Foundation."
+  }
+}

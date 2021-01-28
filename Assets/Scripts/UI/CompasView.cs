@@ -46,14 +46,14 @@ public class CompasView : MonoBehaviour
         letters.Add(northEastLetter.transform, new Vector3(1, 0, 1));
         letters.Add(southWestLetter.transform, new Vector3(-1, 0, -1));
         letters.Add(southEastLetter.transform, new Vector3(1, 0, -1));
-        northLetter.Text = "N";
-        southLetter.Text = "S";
-        eastLetter.Text = "E";
-        westLetter.Text = "W";
-        northWestLetter.Text = "NW";
-        northEastLetter.Text = "NE";
-        southWestLetter.Text = "SW";
-        southEastLetter.Text = "SE";
+        northLetter.Text = LocalizationManager.GetString("gui.game.compass.n");
+        southLetter.Text = LocalizationManager.GetString("gui.game.compass.s"); ;
+        eastLetter.Text = LocalizationManager.GetString("gui.game.compass.e"); ;
+        westLetter.Text = LocalizationManager.GetString("gui.game.compass.w"); ;
+        northWestLetter.Text = LocalizationManager.GetString("gui.game.compass.nw"); ;
+        northEastLetter.Text = LocalizationManager.GetString("gui.game.compass.ne"); ;
+        southWestLetter.Text = LocalizationManager.GetString("gui.game.compass.sw"); ;
+        southEastLetter.Text = LocalizationManager.GetString("gui.game.compass.se"); ;
     }
 
     private void Update()

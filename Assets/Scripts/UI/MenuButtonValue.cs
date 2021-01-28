@@ -13,6 +13,9 @@ public class MenuButtonValue : MenuButton
 
     private List<MenuButtonItemValue> list = new List<MenuButtonItemValue>();
     private MenuButtonItemValue currentValue;
+    private int currentIndex;
+
+    public List<MenuButtonItemValue> ListValues => list;
 
     public void SetClickListener(Action<int> callBack)
     {
@@ -21,26 +24,31 @@ public class MenuButtonValue : MenuButton
 
     private void OnButtonClick(Action<int> callBack)
     {
-        if (currentValue == null)
-            currentValue = list[0];
+        if (currentIndex == -1)
+            currentIndex = 0;
 
-        int index = list.IndexOf(currentValue);
-        index++;
-        if (index > list.Count - 1)
-            index = 0;
-        currentValue = list[index];
-        valueText.text = currentValue.text;
-        callBack(index);
+        currentIndex++;
+        if (currentIndex > list.Count - 1)
+            currentIndex = 0;
+
+        valueText.text = list[currentIndex].text;
+        callBack(currentIndex);
     }
 
     public void SetButtonList(List<MenuButtonItemValue> list)
     {
         this.list = list;
-        if (this.list.Count > 0)
+    }
+
+    public void SelectValueByIndex(int index)
+    {
+        if (index > (list.Count - 1))
         {
-            currentValue = list[0];
-            valueText.text = currentValue.text;
+            throw new Exception("Index bigger than list count");
         }
+
+        currentIndex = index;
+        valueText.text = list[currentIndex].text;
     }
 
     public class MenuButtonItemValue

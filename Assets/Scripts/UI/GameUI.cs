@@ -90,7 +90,7 @@ public class GameUI : MonoBehaviour
     private IEnumerator CorShowSubtitle(string text)
     {
         subtitle.Text = text;
-        var waitTime = text.Length * 0.15f;
+        var waitTime = text.Length * 0.1f;
         yield return new WaitForSeconds(waitTime);
         subtitle.Text = string.Empty;
         corShowSubtitle = null;

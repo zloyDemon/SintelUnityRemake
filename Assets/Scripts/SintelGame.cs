@@ -25,5 +25,7 @@ public class SintelGame : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 50;
 #endif
+
+        LocalizationManager.Instnance.Init();
     }
 }

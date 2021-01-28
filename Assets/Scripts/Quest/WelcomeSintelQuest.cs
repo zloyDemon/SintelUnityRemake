@@ -10,7 +10,7 @@ public class WelcomeSintelQuest : SintelQuest
 
     public override void Init()
     {
-        string questTitle = "Welcome, Sintel.";
+        string questTitle = LocalizationManager.GetString("quest.welcome.title");
         int id = 0;
         SetQuestData(id, questTitle);
         talkTrigger.gameObject.SetActive(false);
@@ -24,16 +24,16 @@ public class WelcomeSintelQuest : SintelQuest
 
         // Talk to Arya
         SubQuest talkToArya = SubQuest.CreateSubQuest();
-        talkToArya.Task = "Talk to Arya.";
+        talkToArya.Task = LocalizationManager.GetString("quest.welcome.sq.talkToArya");
         var talkToAryaTarget = new List<GameObject> { talkTrigger.gameObject };
-        talkToArya.SetInitDelegate(() => TalkToArya("Sintel, you need go to the dock."))
+        talkToArya.SetInitDelegate(() => TalkToArya(LocalizationManager.GetString("quest.welcome.subt.arya_dg_1")))
         .SetDisposeSubQuestDelegate(TalkToAryaDispose)
         .SetTargetObject(talkToAryaTarget);
         result.Enqueue(talkToArya);
 
         // Move to the dock
         SubQuest moveToDock = SubQuest.CreateSubQuest();
-        moveToDock.Task = "Move to the dock.";
+        moveToDock.Task = LocalizationManager.GetString("quest.welcome.sq.moveToDock");
         var moveToDockTarget = new List<GameObject> { beachBugsTrigger.gameObject };
         moveToDock.SetInitDelegate(MoveToDock)
         .SetTargetObject(moveToDockTarget)
@@ -42,16 +42,16 @@ public class WelcomeSintelQuest : SintelQuest
 
         // Kill the bugs
         SubQuest killBugs = SubQuest.CreateSubQuest();
-        killBugs.Task = "Kill the bugs.";
+        killBugs.Task = LocalizationManager.GetString("quest.welcome.sq.killBugs"); ;
         var bugsTarger = CreateBugs();
         killBugs.SetTargetObject(bugsTarger);
         result.Enqueue(killBugs);
 
         // Return to Arya
         SubQuest returnToArya = SubQuest.CreateSubQuest();
-        returnToArya.Task = "Return to Arya";
+        returnToArya.Task = LocalizationManager.GetString("quest.welcome.sq.returnToArya"); ; ;
         var aryayTarget = new List<GameObject> { talkTrigger.gameObject };
-        returnToArya.SetInitDelegate(() => TalkToArya("Great, Sintel. Thank you."))
+        returnToArya.SetInitDelegate(() => TalkToArya(LocalizationManager.GetString("quest.welcome.subt.arya_dg_2")))
         .SetDisposeSubQuestDelegate(TalkToAryaDispose)
         .SetTargetObject(aryayTarget);
         result.Enqueue(returnToArya);
@@ -81,7 +81,7 @@ public class WelcomeSintelQuest : SintelQuest
     {
         beachBugsTrigger.gameObject.SetActive(true);
         beachBugsTrigger.OnEnterTriggerListener(c => {
-            SetSubtitleText("Bugs! I need to kill them.");
+            SetSubtitleText(LocalizationManager.GetString("quest.welcome.subt.sintel_bugs_dg"));
             SubQuestTargetComplete(beachBugsTrigger.gameObject);
         });
     }

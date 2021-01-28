@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
@@ -14,17 +15,31 @@ public class MainMenu : MenuPanel
 
     public override void Awake()
     {
-        base.Awake();   
+        base.Awake();
 
-        newGameButton.Text = "New game";
-        optionsButton.Text = "Options";
-        exitButton.Text = "Exit";
-
+        InitButtonsText();
         newGameButton.SetClickListener(OnNewGameButtonClick);
         optionsButton.SetClickListener(OnOptionsButtonClick);
         exitButton.SetClickListener(OnExitButtonClick);
-
+        LocalizationManager.Instnance.OnGameLocalizationChanged += UpdateLocalization;
         Open(null, null);
+    }
+
+    private void OnDestroy()
+    {
+        LocalizationManager.Instnance.OnGameLocalizationChanged -= UpdateLocalization;
+    }
+
+    private void UpdateLocalization(LocalizationManager.Language lang)
+    {
+        InitButtonsText();
+    }
+
+    private void InitButtonsText()
+    {
+        newGameButton.Text = LocalizationManager.GetString("gui.menu.newgame");
+        optionsButton.Text = LocalizationManager.GetString("gui.menu.options");
+        exitButton.Text = LocalizationManager.GetString("gui.game.exit");
     }
 
     private void OnNewGameButtonClick()
