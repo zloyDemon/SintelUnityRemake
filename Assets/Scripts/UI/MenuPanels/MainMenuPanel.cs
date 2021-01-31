@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class MainMenu : MenuPanel
+public class MainMenuPanel : MenuPanel
 {
     [SerializeField] MenuButton newGameButton;
     [SerializeField] MenuButton optionsButton;
@@ -44,7 +41,10 @@ public class MainMenu : MenuPanel
 
     private void OnNewGameButtonClick()
     {
-        LoadLevel("docks_level");
+        UIManager.Instance.FadeIn(() => 
+        {
+            LoadLevel("docks_level");
+        });
     }
 
     private void OnOptionsButtonClick()
