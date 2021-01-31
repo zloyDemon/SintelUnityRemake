@@ -13,6 +13,7 @@ public class SintelTLDirector : MonoBehaviour
     private void Awake()
     {
         director = GetComponent<PlayableDirector>();
+        gameObject.SetActive(false);
         Init();
     }
 

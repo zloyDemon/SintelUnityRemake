@@ -430,8 +430,8 @@ MonoBehaviour:
   author: {fileID: 5375365422208698093}
   basedOn: {fileID: 3873030446057726368}
   logo: {fileID: 8158679289821476797}
-  rusLogo: {fileID: 21300000, guid: 0ac9716dae488784bbac322074694a46, type: 3}
-  engLogo: {fileID: 21300000, guid: 0ac9716dae488784bbac322074694a46, type: 3}
+  rusLogo: {fileID: 21300000, guid: 612d79757684f554fafbbf334fb79392, type: 3}
+  engLogo: {fileID: 21300000, guid: fb4b41ed2d136094d98e4d29f885feee, type: 3}
 --- !u!225 &5397117655927357818
 CanvasGroup:
   m_ObjectHideFlags: 0

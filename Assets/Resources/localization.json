@@ -156,11 +156,11 @@
     "English": "Great, Sintel. Thank you."
   },
   "intro.author": {
-    "Russian": "Марат Якушев\\nпредставляет.",
-    "English": "Marat Yakushev\\npresents."
+    "Russian": "Марат Якушев\nпредставляет.",
+    "English": "Marat Yakushev\npresents."
   },
   "intro.based": {
-    "Russian": "Основано на одноименной игре\\nкомпании Blender Foundation.",
-    "English": "Base on original game\\nby Blender Foundation."
+    "Russian": "Основано на одноименной игре\nкомпании Blender Foundation.",
+    "English": "Base on original game\nby Blender Foundation."
   }
 }

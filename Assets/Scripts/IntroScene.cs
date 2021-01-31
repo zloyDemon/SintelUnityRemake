@@ -15,7 +15,19 @@ public class IntroScene : SintelTLDirector
     public override void Init()
     {
         base.Init();
-        author.text = "Марат Якушев\nпредставляет.";
-        basedOn.text = "Основано на оргиниальной игре\nкомпании Blender foundation.";
+        author.text = LocalizationManager.GetString("intro.author");
+        basedOn.text = LocalizationManager.GetString("intro.based");
+
+        var lang = LocalizationManager.Instnance.CurrentLanguage;
+
+        switch (lang)
+        {
+            case LocalizationManager.Language.English:
+                logo.sprite = engLogo;
+                break;
+            case LocalizationManager.Language.Russian:
+                logo.sprite = rusLogo;
+                break;
+        }
     }
 }
