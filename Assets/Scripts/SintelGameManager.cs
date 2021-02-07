@@ -59,6 +59,8 @@ public class SintelGameManager : MonoBehaviour
         GameUI = Instantiate(gameUI);
         GameUI.Init(SintelPlayer.GetComponent<CharacterData>());
         yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(2f); // 
+        SintelGame.Instance.Loader.LevelLoaded();
         OnLevelLoaded();
         Debug.Log("Game loaded.");
     }

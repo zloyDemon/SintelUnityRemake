@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +13,6 @@ public class IntroStartDemo : MonoBehaviour
     private void Awake()
     {
         triggerGO = GetComponent<TriggerGO>();
-        
         introTLDirector = Instantiate(introTl);
         triggerGO.OnTriggerEntered += OnTriggerEnetered;
     }
@@ -28,8 +24,12 @@ public class IntroStartDemo : MonoBehaviour
 
     private void OnTriggerEnetered(Collider collider)
     {
-        introTLDirector.PlayTimeline();
-        introTLDirector.OnTimelinePlayed += OnTimeLinePlayed;
+        UIManager.Instance.FadeIn(() =>
+        {
+            introTLDirector.PlayTimeline();
+            introTLDirector.OnTimelinePlayed += OnTimeLinePlayed;
+            UIManager.Instance.SetImageBlack(false);
+        });
     }
 
     private void OnTimeLinePlayed(PlayableDirector pd)

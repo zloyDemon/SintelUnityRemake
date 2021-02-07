@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class SintelGame : MonoBehaviour
 {
+    [SerializeField] Loader loader;
+
     public static SintelGame Instance { get; private set; }
 
+    public Loader Loader => loader;
 
     private void Awake()
     {

@@ -60,7 +60,7 @@ public class SintelAttackComponent : MonoBehaviour
 
     void Start()
     {
-        var s = sintelAnimatorController.MainAnimtor.runtimeAnimatorController as UnityEditor.Animations.AnimatorController;
+        
         currentAttackAnimationName = attackNames[0];
     }
 

@@ -7,11 +7,14 @@ using System;
 
 public class UIManager : MonoBehaviour
 {
-    private const float FadeImageDuration = 1f;
+    private const float FadeImageDuration = 1.5f;
 
     public static UIManager Instance { get; private set; }
 
     [SerializeField] Image fadeImage;
+    [SerializeField] LoadingScreen loadingScreen;
+
+    public LoadingScreen LoadingScreen => loadingScreen;
 
     private Tween fadeTween;
 
@@ -38,11 +41,7 @@ public class UIManager : MonoBehaviour
 
     private void FadeImage(float endValue, Action onComplete)
     {
-        if (fadeTween != null)
-        {
-            fadeTween.Kill();
-            fadeTween = null;
-        }
+        TweenUtils.KillAndNull(ref fadeTween);
 
         var fadeImageColor = fadeImage.color;
         fadeTween = DOTween.To(() => fadeImageColor.a, alpha => 

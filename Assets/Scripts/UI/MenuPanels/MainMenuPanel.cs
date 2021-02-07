@@ -41,10 +41,7 @@ public class MainMenuPanel : MenuPanel
 
     private void OnNewGameButtonClick()
     {
-        UIManager.Instance.FadeIn(() => 
-        {
-            LoadLevel("docks_level");
-        });
+        SintelGame.Instance.Loader.LoadScene("docks_level");
     }
 
     private void OnOptionsButtonClick()
@@ -62,11 +59,6 @@ public class MainMenuPanel : MenuPanel
         settingsMenuPanel.Open(this, button);
     }
 
-    private void LoadLevel(string levelName)
-    {
-        StartCoroutine(CorLoadScene(levelName));
-    }
-
     private void PackElementsToList()
     {
         PanelElements.Add(newGameButton.transform);
@@ -74,14 +66,6 @@ public class MainMenuPanel : MenuPanel
         PanelElements.Add(exitButton.transform);
     }
 
-    IEnumerator CorLoadScene(string name)
-    {
-        var loadingScene = SceneManager.LoadSceneAsync(name, LoadSceneMode.Single);
-        while (loadingScene != null && !loadingScene.isDone)
-            yield return new WaitForEndOfFrame();
-
-        yield return new WaitForEndOfFrame();
-    }
 
     public override void CollectPanelElementsToList()
     {
