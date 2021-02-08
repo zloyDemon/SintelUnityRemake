@@ -42,6 +42,8 @@ public class MainMenuPanel : MenuPanel
     private void OnNewGameButtonClick()
     {
         SintelGame.Instance.Loader.LoadScene("docks_level");
+        SoundManager.Instance.PlaySound("Sintel_Menu_Drums");
+        SoundManager.Instance.DoFadeInMusic();
     }
 
     private void OnOptionsButtonClick()

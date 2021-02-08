@@ -90,7 +90,7 @@ public class QuestGameUIView : MonoBehaviour
         _questInfoHolder.gameObject.SetActive(false);
         Sequence sequence = DOTween.Sequence();
         sequence.Append(_questLabelHolder.DOFade(1, 2f));
-        sequence.AppendInterval(3);
+        sequence.AppendInterval(5);
         sequence.Append(_questLabelHolder.DOFade(0, 2f));
         sequence.Play();
     }

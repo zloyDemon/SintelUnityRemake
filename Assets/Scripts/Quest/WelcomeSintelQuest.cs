@@ -16,6 +16,7 @@ public class WelcomeSintelQuest : SintelQuest
         talkTrigger.gameObject.SetActive(false);
         beachBugsTrigger.gameObject.SetActive(false);
         base.Init();
+        SoundManager.Instance.PlayNewMusic("sintel_battle_theme");
     }
 
     public override Queue<SubQuest> CreateSubQuest()
@@ -108,5 +109,12 @@ public class WelcomeSintelQuest : SintelQuest
     {
         SubQuestTargetComplete(bug.UiDistanceToPlayer.gameObject);
         bug.OnBugDeath -= OnBugDeath;
+    }
+
+    public override void Dispose()
+    {
+        base.Dispose();
+        SoundManager.Instance.DoFadeInMusic();
+        SoundManager.Instance.PlaySound("quest_completed");
     }
 }

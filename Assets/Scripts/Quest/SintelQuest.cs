@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class SintelQuest : MonoBehaviour
+abstract public class SintelQuest : MonoBehaviour, IDisposable
 {
     string questTitle;
     int questId;
@@ -54,6 +54,7 @@ abstract public class SintelQuest : MonoBehaviour
             QuestCompleted(this);
             currentSubQuest.DisposeSQuest();
             currentSubQuest = null;
+            Dispose();
             return;
         }
 
@@ -73,6 +74,11 @@ abstract public class SintelQuest : MonoBehaviour
     }
 
     abstract public Queue<SubQuest> CreateSubQuest();
+
+    public virtual void Dispose()
+    {
+        
+    }
 
     public class SubQuest
     {

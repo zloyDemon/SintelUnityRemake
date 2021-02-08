@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    private const string MusicTheme_1 = "sintel_menu_2";
     private float BGScaleDuration = 50f;
 
     [SerializeField] Image gameMenuLogo;
@@ -18,6 +19,7 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         AnimateBg();
+        SoundManager.Instance.PlayNewMusic(MusicTheme_1);
     }
 
     private void AnimateBg()

@@ -25,6 +25,7 @@ public class SintelPlayer : MonoBehaviour
     private bool oldIsGround;
     private bool isGround;
     private Transform mainCamera;
+    private CharacterSoundController characterSoundController;
 
     public enum SintelMoveState
     {
@@ -47,6 +48,7 @@ public class SintelPlayer : MonoBehaviour
         animatorController = GetComponent<SintelAnimatorController>();
         attackComponent = GetComponent<SintelAttackComponent>();
         rigidbody = GetComponent<Rigidbody>();
+        characterSoundController = GetComponent<CharacterSoundController>();
         attackComponent.AttackEvent += OnAttack;
         currentMoveState = SintelMoveState.Idle;
         moveComponent.SetMoveSpeed(WalkSpeed);
@@ -119,7 +121,8 @@ public class SintelPlayer : MonoBehaviour
 
     private void OnAnimationEventHandler(int value)
     {
-
+        if (value == 2)
+            characterSoundController.PlayFootSteps();
     }
 
     private void Attack()
